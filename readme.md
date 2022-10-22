@@ -9,7 +9,7 @@
   </a>
   
  <p align="center">
-    A Telegram bot to turn all media and documents files to instant direct download and stream link .
+    A Telegram bot to turn all media and documents files to instant direct download and stream telegram link .
     <br />
    </strong></a>
     <br />
