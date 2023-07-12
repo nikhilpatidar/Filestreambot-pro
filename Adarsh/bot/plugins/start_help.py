@@ -75,7 +75,7 @@ async def start(b, m):
             return
     await StreamBot.send_photo(
         chat_id=m.chat.id,
-        #photo ="https://telegra.ph/file/ca10e459bc6f48a4ad0f7.jpg",
+        photo ="https://telegra.ph/file/9242446696fd7aa260fed.png",
         caption =f'Hi {m.from_user.mention(style="md")}!,\nSend/forward any file to get direct download and streaming links.',
         reply_markup=buttonz)
 
