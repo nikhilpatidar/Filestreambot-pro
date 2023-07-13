@@ -48,4 +48,4 @@ async def render_download_page(id, secure_hash):
                 heading = 'Download {}'.format(file_data.file_name)
                 file_size = humanbytes(int(u.headers.get('Content-Length')))
                 html = (await r.read()) % (heading, file_data.file_name, src, file_size)
-    return html
+                return html
