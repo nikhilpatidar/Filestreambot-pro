@@ -34,3 +34,18 @@ async def render_page(id, secure_hash):
                     file_size = humanbytes(int(u.headers.get('Content-Length')))
                     html = (await r.read()) % (heading, file_data.file_name, src, file_size)
     return html
+
+async def render_download_page(id, secure_hash):
+    file_data=await get_file_ids(StreamBot, int(Var.BIN_CHANNEL), int(id))
+    if file_data.unique_id[:6] != secure_hash:
+        logging.debug(f'link hash: {secure_hash} - {file_data.unique_id[:6]}')
+        logging.debug(f"Invalid hash for message with - ID {id}")
+        raise InvalidHash
+    src = urllib.parse.urljoin(Var.URL, f'{secure_hash}{str(id)}')    
+    async with aiofiles.open('Adarsh/template/dl.html') as r:
+        async with aiohttp.ClientSession() as s:
+            async with s.get(src) as u:
+                heading = 'Download {}'.format(file_data.file_name)
+                file_size = humanbytes(int(u.headers.get('Content-Length')))
+                html = (await r.read()) % (heading, file_data.file_name, src, file_size)
+    return html
