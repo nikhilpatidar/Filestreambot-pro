@@ -1,4 +1,3 @@
-<!-- (c) adarsh-goel-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,34 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>%s</title>
-    <link rel="stylesheet" type='text/css' href="https://adarsh-goel.github.io/resources/style.css">
+    <link rel="stylesheet" type="text/css" href="https://adarsh-goel.github.io/resources/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
+    <link rel="stylesheet" type="text/css" href="Filestreambot-pro/Adarsh/template/style.css">
     <!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-14MFS6P5RS"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'G-14MFS6P5RS');
-	</script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-14MFS6P5RS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-14MFS6P5RS');
+    </script>
 </head>
 
-<body class='cyber'>
+<body class="cyber">
     <header>
-        <div class="toogle"></div>
+        <div class="toggle"></div>
         <div id="file-name" class="cyber">
-		<marquee direction = "left"> %s</marquee>
+            <marquee direction="left">%s</marquee>
         </div>
     </header>
 
     <div class="container">
-        <a href=%s>
+        <a href="%s" id="download-link" download>
             <button class="cybr-btn">
                 Download
-                <span aria-hidden>_</span>
+                <span aria-hidden="_">_</span>
                 <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
                 <span aria-hidden class="cybr-btn__tag">_%s</span>
             </button>
@@ -42,29 +40,29 @@
     </div>
     
     <footer>
-	    <align="left"><a href="tg://resolve?domain=filetolinkreadybot" style="color:blue" >Make your own Link &emsp; &emsp;</a></align>	    
+        <a href="tg://resolve?domain=filetolinkreadybot" style="color:blue">Make your own Link &emsp; &emsp;</a>
     </footer>
     
     
     <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
-	<script>
+    <script>
         const controls = [
-              'play-large',
-              'rewind',
-              'play', 
-              'fast-forward', 
-              'progress', 
-              'current-time',
-              'duration',
-              'mute',
-              'volume',
-              'captions',
-              'settings',
-              'pip',
-              'airplay',
-              'download',
-              'fullscreen'
-            ];
+            'play-large',
+            'rewind',
+            'play', 
+            'fast-forward', 
+            'progress', 
+            'current-time',
+            'duration',
+            'mute',
+            'volume',
+            'captions',
+            'settings',
+            'pip',
+            'airplay',
+            'download',
+            'fullscreen'
+        ];
         document.addEventListener('DOMContentLoaded', () => {
             const player = Plyr.setup('.player', { controls });
         });
@@ -72,12 +70,30 @@
         const body = document.querySelector('body');
         const title = document.querySelector('#file-name');
         const footer = document.querySelector('footer');
-        const toogle = document.querySelector('.toogle');
-        toogle.onclick = () => {
-            body.classList.toggle('dark')
-            footer.classList.toggle('dark')
-            title.classList.toggle('dark')
+        const toggle = document.querySelector('.toggle');
+        toggle.onclick = () => {
+            body.classList.toggle('dark');
+            footer.classList.toggle('dark');
+            title.classList.toggle('dark');
         }
+
+        // Countdown timer before downloading
+        const downloadLink = document.getElementById('download-link');
+        const countdownSeconds = 10;
+
+        function startDownloadCountdown() {
+            let seconds = countdownSeconds;
+            const countdownTimer = setInterval(() => {
+                downloadLink.innerText = `Download (${seconds}s)`;
+                seconds--;
+                if (seconds < 0) {
+                    clearInterval(countdownTimer);
+                    downloadLink.innerText = 'Download';
+                }
+            }, 1000);
+        }
+
+        startDownloadCountdown();
     </script>
 </body>
 </html>
