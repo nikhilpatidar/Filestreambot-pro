@@ -7,63 +7,63 @@ from utils_bot import *
 from Adarsh import StartTime
 
 
-START_TEXT = """ Your Telegram DC Is : `{}`  """
+# START_TEXT = """ Your Telegram DC Is : `{}`  """
 
 
-@StreamBot.on_message(filters.regex("maintainers😎"))
-async def maintainers(b,m):
-    try:
-       await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
-    except Exception:
-                await b.send_message(
-                    chat_id=m.chat.id,
-                    text="I am Coded By [Adarsh Goel](https://github.com/adarsh-goel)",
+# @StreamBot.on_message(filters.regex("maintainers😎"))
+# async def maintainers(b,m):
+#     try:
+#        await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
+#     except Exception:
+#                 await b.send_message(
+#                     chat_id=m.chat.id,
+#                     text="I am Coded By [Adarsh Goel](https://github.com/adarsh-goel)",
                     
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("Developer💻", url=f"https://github.com/adarsh-goel")
-                            ]
-                        ]
-                    ),
+#                     reply_markup=InlineKeyboardMarkup(
+#                         [
+#                             [
+#                                 InlineKeyboardButton("Developer💻", url=f"https://github.com/adarsh-goel")
+#                             ]
+#                         ]
+#                     ),
                     
-                    disable_web_page_preview=True)
+#                     disable_web_page_preview=True)
             
          
-@StreamBot.on_message(filters.regex("follow❤️"))
-async def follow_user(b,m):
-    try:
-       await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
-    except Exception:
-                await b.send_message(
-                    chat_id=m.chat.id,
-                    text="<B>HERE'S THE FOLLOW LINK</B>",
+# @StreamBot.on_message(filters.regex("follow❤️"))
+# async def follow_user(b,m):
+#     try:
+#        await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
+#     except Exception:
+#                 await b.send_message(
+#                     chat_id=m.chat.id,
+#                     text="<B>HERE'S THE FOLLOW LINK</B>",
                     
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("FOLLOW ME", url=f"https://GITHUB.COM/adarsh-goel")
-                            ]
-                        ]
-                    ),
+#                     reply_markup=InlineKeyboardMarkup(
+#                         [
+#                             [
+#                                 InlineKeyboardButton("FOLLOW ME", url=f"https://GITHUB.COM/adarsh-goel")
+#                             ]
+#                         ]
+#                     ),
                     
-                    disable_web_page_preview=True)
+#                     disable_web_page_preview=True)
         
 
-@StreamBot.on_message(filters.regex("DC"))
-async def start(bot, update):
-    text = START_TEXT.format(update.from_user.dc_id)
-    await update.reply_text(
-        text=text,
-        disable_web_page_preview=True,
-        quote=True
-    )
+# @StreamBot.on_message(filters.regex("DC"))
+# async def start(bot, update):
+#     text = START_TEXT.format(update.from_user.dc_id)
+#     await update.reply_text(
+#         text=text,
+#         disable_web_page_preview=True,
+#         quote=True
+#     )
 
     
     
 @StreamBot.on_message(filters.command("list"))
 async def list(l, m):
-    LIST_MSG = "Hi! {} Here is a list of all my commands \n \n 1 . `start⚡️` \n 2. `help📚` \n 3. `login🔑` \n 4.`follow❤️` \n 5. `ping📡` \n 6. `status📊` \n 7. `DC` this tells your telegram dc \n 8. `maintainers😎` "
+    LIST_MSG = "Hi! {} Here is a list of all my commands \n \n 1. `start⚡️` \n 2. `help📚` \n 3. `ping📡` \n 4. `status📊` "
     await l.send_message(chat_id = m.chat.id,
         text = LIST_MSG.format(m.from_user.mention(style="md"))
         

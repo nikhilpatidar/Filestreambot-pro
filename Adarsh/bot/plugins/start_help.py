@@ -54,7 +54,7 @@ async def start(b, m):
         except UserNotParticipant:
              await StreamBot.send_photo(
                 chat_id=m.chat.id,
-                photo="https://telegra.ph/file/9d94fc0af81234943e1a9.jpg",
+                photo="https://img.freepik.com/premium-vector/stylish-bright-creative-text-welcome-white-background-vector_532963-3106.jpg",
                 caption="<i>𝙹𝙾𝙸𝙽 CHANNEL 𝚃𝙾 𝚄𝚂𝙴 𝙼𝙴🔐</i>",
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -75,8 +75,8 @@ async def start(b, m):
             return
     await StreamBot.send_photo(
         chat_id=m.chat.id,
-        photo ="https://telegra.ph/file/9242446696fd7aa260fed.png",
-        caption =f'Hi {m.from_user.mention(style="md")}!,\nSend/forward any file to get direct download and streaming links.',
+        photo ="https://img.freepik.com/premium-vector/stylish-bright-creative-text-welcome-white-background-vector_532963-3106.jpg",
+        caption =f'Hi {m.from_user.mention(style="md")}!,\nSend or forward any file to get direct download and streaming links.',
         reply_markup=buttonz)
 
 
@@ -121,14 +121,7 @@ async def help_handler(bot, message):
                 disable_web_page_preview=True)
             return
     await message.reply_text(
-        text="""<b>nSend/forward any file to get direct download and streaming links</b>\n
-<b> I also support Channels, add me to you Channel and send any media files and see miracle✨ also send /list to know all commands""",
+        text="""<b>Send/forward any file to get direct download and streaming links</b>""",
         
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("💁‍♂️ DEV", url="https://telegram.dog/captaindojo")],
-                #[InlineKeyboardButton("💥 Source Code", url="https://github.com/adarsh-goel/-pro/")]
-            ]
-        )
+        disable_web_page_preview=True
     )
